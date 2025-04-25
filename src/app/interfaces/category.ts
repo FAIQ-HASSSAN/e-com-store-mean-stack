@@ -6,4 +6,5 @@ export interface Category {
   
 export interface IAddCategory{
     name : string
+    _id?: string;
 }
