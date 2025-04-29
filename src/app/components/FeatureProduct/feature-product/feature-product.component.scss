@@ -1,0 +1,177 @@
+// Our casestudies
+@import "../../../styles/mixin.scss";
+
+.casestudies {
+  width: 100%;
+  background-color: #0a2333;
+  color: white;
+  padding: clamp(2.6rem, 5.25vw + 0.92rem, 4rem) 0;
+  padding-top: 0px;
+  @include mobile {
+    padding: clamp(2.6rem, 5.25vw + 0.92rem, 5rem) 1rem;
+  }
+  &__topcta {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+        @include tablet {
+      width: 86%;
+      margin: auto;
+    }
+    @include mobile {
+      width: 100%;
+      flex-direction: column;
+    }
+    .left {
+      flex-basis: 60%;
+      @include mobile {
+        flex-basis: 100%;
+      }
+      .cta-title {
+        // font-size: clamp(1.6rem, 0.5vw + 1.44rem, 2.4rem);
+        color: #ffff;
+        font-weight: 400;
+      }
+      .cta-heading {
+        // font-size: clamp(2.4rem, 1.5vw + 1.92rem, 4.8rem);
+        color: #ffff;
+        font-weight: 500;
+      }
+    }
+    .right {
+      @include mobile {
+        width: 100%;
+      }
+      button {
+        // background: #e2fb9d;
+        // color: #0a2333;
+        border-radius: 1.2rem;
+        padding: 1.2rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+          //  font-size: clamp(1.5rem, 1.5vw + 1.92rem, 2rem);
+        font-weight:500;
+        //border: none;
+        //outline: none;
+  
+        @include mobile {
+          width: 100%;
+          margin-top: 2rem;
+        }
+      }
+
+    }
+  }
+  &__arrows {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 88%;
+    margin: auto;
+    transform: translate(0px, 20rem);
+    @include tablet {
+      width: 95%;
+      transform: translate(0px, 15rem);
+    }
+    @include mobile {
+      width: 100%;
+      transform: translate(0px, 0rem);
+      justify-content: flex-end;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .arrow {
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      background: #e2fb9d;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: 1.6rem;
+      font-weight: 700;
+      @include tablet {
+        width: 3rem;
+        height: 3rem;
+      }
+      @include mobile {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+    .left__arrow {
+      img {
+        // rotate: 180deg;
+      }
+    }
+  }
+  &__slider {
+    width: 90%;
+    margin-left: auto;
+    overflow-x: auto;
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 1rem;
+    padding-right: 2rem;
+    @include mobile {
+      width: 100%;
+      margin-top: 2rem;
+    }
+    .casestudy {
+      min-width: 40%;
+      min-height: 12rem;
+      cursor: pointer;
+      @include mobile {
+        min-width: 85%;
+      }
+
+      &__image {
+        height: 25rem;
+
+        img{
+          width: 100%;
+          object-fit: cover;
+        }
+        @include tablet {
+          height: 23rem;
+        }
+        @include mobile {
+          height: 18.6rem;
+        }
+        img {
+          border-radius: 1.2rem;
+          height: 100%;
+        }
+      }
+      &__title {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 2rem 1rem 2rem 0;
+        h3{
+          color: #ffff;
+          // font-size: clamp(1.2rem, 1.25vw + 0.8rem, 3.2rem);
+          cursor: pointer;
+        }
+        img {
+          cursor: pointer;
+          width: 1.5rem;
+          height: 1.5rem;
+          margin-top: 0.5rem;
+        }
+      }
+    }
+  }
+  &__slider::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.product-name{
+  font-size: 2rem !important;
+}

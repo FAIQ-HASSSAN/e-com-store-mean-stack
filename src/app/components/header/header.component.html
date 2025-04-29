@@ -1,0 +1,30 @@
+<!-- Header Section -->
+<header class="flex justify-between items-center bg-[#f1f1f1] p-5">
+    <!-- Logo Section -->
+    <div class="flex-1">
+        <!-- <img src="logo.png" alt="Logo" style="height: 40px;"> -->
+         <span>EiziMart</span>
+    </div>
+    
+    <!-- Search Box Section -->
+    <div class="flex-2 text-center;">
+        <input type="text" placeholder="Search..." class="p-2 w-[80%] rounded-5 border-1 border-indigo-500">
+    </div>
+    
+    <!-- Profile Icon Section -->
+    <div class="flex-1 text-right">
+        <!-- <img src="profile-icon.png" alt="Profile" style="height: 40px; cursor: pointer;"> -->
+         <span>Profile</span>
+    </div>
+</header>
+
+<!-- Categories Section -->
+<nav class="bg-[#333] py-4">
+    <ul class="flex justify-center m-0 p-0 list-none">
+        @for(category of categoryArr;track category){
+            <li class="mx-5">
+                <a href="#" class="text-white no-underline">{{category?.name}}</a>
+            </li>
+        }
+    </ul>
+</nav>

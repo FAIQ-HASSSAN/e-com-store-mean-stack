@@ -33,4 +33,10 @@ export class ProductService {
       return this.http.post<IProduct>(`${this.apiUrl}/product`,product)
    }
 
+   uploadImage(formData: FormData) {
+    console.log('image is : ',formData);
+    return this.http.post<{ imageUrl: string }>('http://localhost:3000/upload', formData);
+  }
+  
+
 }

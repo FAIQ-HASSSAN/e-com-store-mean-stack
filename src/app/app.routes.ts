@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { CategoriesComponent } from './components/manage/categories/categories.component';
-import { CategoryFormComponent } from './components/manage/category-form/category-form.component';
-import { BrandsComponent } from './components/manage/brands/brands.component';
-import { BrandFormComponent } from './components/manage/brand-form/brand-form.component';
+import { HomeComponent } from './pages/home/home.component';
+import { CategoriesComponent } from './components/manage/category/categories/categories.component';
+import { CategoryFormComponent } from './components/manage/category/category-form/category-form.component';
+import { BrandsComponent } from './components/manage/brand/brands/brands.component';
+import { BrandFormComponent } from './components/manage/brand/brand-form/brand-form.component';
 import { ProductComponent } from './components/manage/products/product/product.component';
 import { ProductFormComponent } from './components/manage/products/product-form/product-form.component';
 

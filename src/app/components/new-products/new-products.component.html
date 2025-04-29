@@ -1,0 +1,36 @@
+<section class="feedback">
+    <div class="feedback-wrapper">
+        <div class="feedback-wrapper--left">
+            <div class="feedback-wrapper--left-div">
+                <div>
+                    <!-- <p class="page-title">Testimonials</p> -->
+                    <h2 class="feedback-wrapper--left-div--description">New Arrivals</h2>
+                </div>
+                <div class="feedback-wrapper--left--arrows">
+                    <button class="feedback-wrapper--left--arrows--btn-left" [ngStyle]="isClickedLeft ? styleObject2 : styleObject1" (click)="scrollLeft()">←</button>
+                    <button class="feedback-wrapper--left--arrows--btn-right" [ngStyle]="isClickedRight ? styleObject2 : styleObject1"  (click)="scrollRight()">→</button>
+                </div>
+            </div>
+        </div>
+        <div class="feedback-wrapper--right" #cardsList>
+            @for(newProduct of newProducts;track newProduct){
+                <div class="feedback-wrapper--right--box">
+                    @for (productImg of newProduct.images; track $index){
+                        <div class="w-full">
+                            <img [src]="productImg" class="feedback-wrapper--right--box--img" [alt]="productImg">
+                         </div>
+                    }
+                    <div class="para-one w-[92%] mx-auto">
+                       <p class="feedback-wrapper--right--box--description">{{newProduct?.shortDescription}}</p>
+                    </div>
+                    <div class="w-[92%] mx-auto flex justify-between">
+                       <h5 class="para-one ml-4">{{newProduct?.Price}}</h5>
+                       <div>
+                           <button mat-raised-button>Add to Cart</button>
+                       </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

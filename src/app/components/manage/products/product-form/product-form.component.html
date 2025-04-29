@@ -1,4 +1,4 @@
-<div class="flex flex-col item-center px-40 mt-10">
+<div class="flex flex-col item-center px-40 mt-10 my-7">
     @if(id){
         <h1 class="text-center">Update Product</h1>
     }@else{
@@ -50,6 +50,11 @@
             <mat-label>Discount</mat-label>
             <input formControlName="discount" type="number" matInput>
             </mat-form-field>
+
+            <section class="flex w-full">
+                <p><mat-checkbox formControlName="isFeatured">Is Featured</mat-checkbox></p>
+                <p><mat-checkbox formControlName="isNewProducts">Is New</mat-checkbox></p>
+              </section>
             
             <div class="flex w-full flex-col" formArrayName="images">
                 <h4>Images</h4>
@@ -58,6 +63,7 @@
                     <mat-label>Image {{i+1}}</mat-label>
                     <input [formControlName]="i"  type="text" matInput>
                 </mat-form-field>
+                <input type="file" class="input-file" (change)="onFileSelected($event, i)" />
               }
               <div class="flex my-2">
                 <button mat-raised-button class="mr-4" (click)="addControl()">Add Image</button>
