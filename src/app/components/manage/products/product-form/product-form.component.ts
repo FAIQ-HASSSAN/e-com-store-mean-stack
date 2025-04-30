@@ -12,13 +12,14 @@ import { JsonPipe } from '@angular/common';
 import { CategoryService } from '../../../../services/category/category.service';
 import { forkJoin, single } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @Component({
-  selector: 'app-product-form',
-  standalone: true,
-  imports: [JsonPipe,MatSelectModule,ReactiveFormsModule, MatButton ,MatFormField,MatLabel,MatInput],
-  templateUrl: './product-form.component.html',
-  styleUrl: './product-form.component.scss'
+    selector: 'app-product-form',
+    imports: [MatCheckboxModule, JsonPipe, MatSelectModule, ReactiveFormsModule, MatButton, MatFormField, MatLabel, MatInput],
+    templateUrl: './product-form.component.html',
+    standalone : true,
+    styleUrl: './product-form.component.scss'
 })
 export class ProductFormComponent {
 
@@ -39,6 +40,8 @@ export class ProductFormComponent {
       images : new FormArray([]),
       categoryId : new FormControl('',[Validators.required]),
       brandId : new FormControl('',[Validators.required]),
+      isFeatured : [false,[Validators.required]],
+      isNewProducts : [false,[Validators.required]]
     })
 
     constructor(private route : ActivatedRoute, private categorySer : CategoryService , private productSer : ProductService, private brandSer : BrandService){}
@@ -107,6 +110,7 @@ export class ProductFormComponent {
     }
 
     addProduct(){
+      console.log('form value is : ',this.productForm.value);
       const obj = this.productObj;
       if(obj){
         this.productSer.addProduct(this.productForm.value as any).subscribe((res : any)=>{
@@ -122,4 +126,22 @@ export class ProductFormComponent {
            this.router.navigateByUrl('/admin/products');
         })
     }
+
+    onFileSelected(event: any, index: number) {
+      console.log('event is : ',event);
+      console.log('inex is : ',index);
+      const file = event.target.files[0];
+      console.log('file is : ',file);
+      if (!file) return;
+    
+      const formData = new FormData();
+      formData.append('image', file);
+    
+      this.productSer.uploadImage(formData).subscribe((res: any) => {
+        const imageUrl = res.imageUrl;
+        const imagesArray = this.getImageControl();
+        imagesArray.at(index).setValue(imageUrl);
+      });
+    }
+    
 }

@@ -1,0 +1,59 @@
+<section class="casestudies">
+    <!-- <article class="casestudies__topcta">
+      <div class="left">
+        <h5 class="cta-title page-title">{{ data()?.sectionTitle }}</h5>
+        <h2 class="cta-heading">
+          {{ data()?.heading }}
+        </h2>
+      </div>
+      <div class="right">
+        <button class="btn cta btn--green">
+          {{data()?.ctaLabel}}
+       <ion-icon name="arrow-forward-outline"></ion-icon>
+        </button>
+      </div>
+    </article> -->
+    @if(featureProducts){
+    <article class="casestudies__arrows">
+      <div class="left__arrow arrow" (click)="scrollLeft()">
+      <!-- <ion-icon name="arrow-back-outline"></ion-icon> -->
+         <img src="/images/left-arrow.svg" alt="left arrow">
+      </div>
+      <div class="right__arrow arrow" (click)="scrollRight()">
+     <!-- <ion-icon name="arrow-forward-outline"></ion-icon> -->
+         <img src="/images/right-arrow.svg" alt="right arrow">
+      </div>
+    </article>
+  }
+    <div class="w-[80%] mx-auto">
+        <h2 class="cta-heading">
+            {{ data()?.heading }}
+          </h2>
+    </div>
+    <div class="casestudies__slider" #cardsList>
+        @for(featureProduct of featureProducts;track featureProduct;let i=$index){
+            <article class="casestudy"  #firstTile [routerLink]="'/product/'+featureProduct?._id">
+                @for(featureimg of featureProduct.images;track featureimg){
+                    <figure class="casestudy__image">
+                        <img [src]="featureimg" [alt]="featureimg"/>
+                      </figure>
+                }
+                <div class="mt-4">
+                    <h5 class="product-name">{{featureProduct?.name}}</h5>
+                    <p>{{featureProduct?.shortDescription}}</p>
+                    <div class="flex justify-between">
+                        <h6>{{featureProduct?.Price}}</h6>
+                        <div>
+                            <button mat-raised-button>Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="casestudy__title" >
+                  <h3 class="page-title">card title</h3>
+                  <img src="/images/gallry-link-arrow.svg" alt="arrow icon" />
+                </div> -->
+              </article>
+        }
+    </div>
+  </section> 
+  

@@ -6,5 +6,7 @@ export interface IProduct{
     Price : Number,
     discount : Number,
     images : String[],
-    categoryId? : string
+    categoryId? : string,
+    isFeatured : boolean,
+    isNewProducts : boolean
 }

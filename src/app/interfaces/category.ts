@@ -1,7 +1,7 @@
 export interface Category {
-    _id: string;
+    _id?: string;
     name: string;
-    __v: number;
+    __v?: number;
   }
   
 export interface IAddCategory{
