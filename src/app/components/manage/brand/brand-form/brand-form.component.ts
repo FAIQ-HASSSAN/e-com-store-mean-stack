@@ -11,11 +11,10 @@ import { BrandService } from '../../../../services/brand/brand.service';
 import { IBrand } from '../../../../interfaces/brand';
 
 @Component({
-  selector: 'app-brand-form',
-  standalone: true,
-  imports: [MatInputModule,MatButtonModule,CommonModule,FormsModule],
-  templateUrl: './brand-form.component.html',
-  styleUrl: './brand-form.component.scss'
+    selector: 'app-brand-form',
+    imports: [MatInputModule, MatButtonModule, CommonModule, FormsModule],
+    templateUrl: './brand-form.component.html',
+    styleUrl: './brand-form.component.scss'
 })
 export class BrandFormComponent {
 

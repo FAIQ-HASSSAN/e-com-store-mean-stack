@@ -14,7 +14,7 @@
         </div>
         <div class="feedback-wrapper--right" #cardsList>
             @for(newProduct of newProducts;track newProduct){
-                <div class="feedback-wrapper--right--box">
+                <div class="feedback-wrapper--right--box" [routerLink]="'/product/'+newProduct?._id">
                     @for (productImg of newProduct.images; track $index){
                         <div class="w-full">
                             <img [src]="productImg" class="feedback-wrapper--right--box--img" [alt]="productImg">

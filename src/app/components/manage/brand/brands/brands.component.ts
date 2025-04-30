@@ -11,11 +11,10 @@ import { BrandService } from '../../../../services/brand/brand.service';
 import { IBrand } from '../../../../interfaces/brand';
 
 @Component({
-  selector: 'app-brands',
-  standalone: true,
-  imports: [RouterLink,MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule,MatButtonModule],
-  templateUrl: './brands.component.html',
-  styleUrl: './brands.component.scss'
+    selector: 'app-brands',
+    imports: [RouterLink, MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule, MatButtonModule],
+    templateUrl: './brands.component.html',
+    styleUrl: './brands.component.scss'
 })
 export class BrandsComponent {
   displayedColumns: string[] = ['_id', 'name', 'action'];

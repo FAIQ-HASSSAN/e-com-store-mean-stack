@@ -3,15 +3,16 @@ import { CustomerService } from '../../../services/customer/customer.service';
 import { MatButtonModule } from '@angular/material/button';
 import { IProduct } from '../../../interfaces/product';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-feature-product',
-  standalone: true,
-  // schemas : [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [CommonModule,MatButtonModule],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  templateUrl: './feature-product.component.html',
-  styleUrl: './feature-product.component.scss'
+    selector: 'app-feature-product',
+    // schemas : [CUSTOM_ELEMENTS_SCHEMA],
+    standalone : true,
+    imports: [CommonModule, MatButtonModule,RouterLink],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    templateUrl: './feature-product.component.html',
+    styleUrl: './feature-product.component.scss'
 })
 export class FeatureProductComponent {
   @ViewChild("cardsList") cardsList?: ElementRef<HTMLUListElement>;

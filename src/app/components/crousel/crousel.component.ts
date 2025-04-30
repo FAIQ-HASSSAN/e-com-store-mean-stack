@@ -1,43 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import {
-  CarouselCaptionComponent,
-  CarouselComponent,
-  CarouselControlComponent,
-  CarouselIndicatorsComponent,
-  CarouselInnerComponent,
-  CarouselItemComponent} from '@coreui/angular';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { IProduct } from '../../interfaces/product';
+
+declare var $: any;
 
 @Component({
-  selector: 'app-crousel',
-  standalone: true,
-  imports: [RouterLink ,CarouselCaptionComponent,CarouselComponent,CarouselControlComponent,CarouselIndicatorsComponent,CarouselInnerComponent,CarouselItemComponent],
-  templateUrl: './crousel.component.html',
-  styleUrl: './crousel.component.scss'
+    selector: 'app-crousel',
+    standalone : true,
+    imports: [RouterLink,SlickCarouselModule],
+    templateUrl: './crousel.component.html',
+    styleUrl: './crousel.component.scss'
 })
 export class CrouselComponent {
 
-  slides: any[] = new Array(3).fill({ id: -1, src: '', title: '', subtitle: '' });
-
-  ngOnInit(): void {
-    this.slides[0] = {
-      id: 0,
-      src: './assets/img/angular.jpg',
-      title: 'First slide',
-      subtitle: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
-    };
-    this.slides[1] = {
-      id: 1,
-      src: './assets/img/react.jpg',
-      title: 'Second slide',
-      subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-    };
-    this.slides[2] = {
-      id: 2,
-      src: './assets/img/vue.jpg',
-      title: 'Third slide',
-      subtitle: 'Praesent commodo cursus magna, vel scelerisque nisl consectetur.'
-    };
+  sliderImages = input.required<IProduct[]>();
+ 
+  ngAfterViewInit() {
+    // Initialize Slick Carousel
+    $('.slick-carousel').slick({
+      dots: true,         // Show navigation dots
+      infinite: true,     // Enable infinite scroll
+      speed: 500,         // Speed of the transition
+      slidesToShow: 1,    // Show one image at a time
+      slidesToScroll: 1,  // Scroll one image at a time
+      autoplay: true,     // Autoplay the carousel
+      autoplaySpeed: 1500, // Speed of autoplay (in milliseconds)
+      arrows : true,
+      // fade : true,
+      // pauseOnHover: true,
+    });
   }
-
 }

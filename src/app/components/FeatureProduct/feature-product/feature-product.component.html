@@ -32,7 +32,7 @@
     </div>
     <div class="casestudies__slider" #cardsList>
         @for(featureProduct of featureProducts;track featureProduct;let i=$index){
-            <article class="casestudy"  #firstTile>
+            <article class="casestudy"  #firstTile [routerLink]="'/product/'+featureProduct?._id">
                 @for(featureimg of featureProduct.images;track featureimg){
                     <figure class="casestudy__image">
                         <img [src]="featureimg" [alt]="featureimg"/>

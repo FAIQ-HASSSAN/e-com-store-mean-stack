@@ -15,11 +15,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @Component({
-  selector: 'app-product-form',
-  standalone: true,
-  imports: [MatCheckboxModule,JsonPipe,MatSelectModule,ReactiveFormsModule, MatButton ,MatFormField,MatLabel,MatInput],
-  templateUrl: './product-form.component.html',
-  styleUrl: './product-form.component.scss'
+    selector: 'app-product-form',
+    imports: [MatCheckboxModule, JsonPipe, MatSelectModule, ReactiveFormsModule, MatButton, MatFormField, MatLabel, MatInput],
+    templateUrl: './product-form.component.html',
+    standalone : true,
+    styleUrl: './product-form.component.scss'
 })
 export class ProductFormComponent {
 

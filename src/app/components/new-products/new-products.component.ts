@@ -3,13 +3,14 @@ import { CustomerService } from '../../services/customer/customer.service';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { IProduct } from '../../interfaces/product';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-new-products',
-  standalone: true,
-  imports: [CommonModule,MatButtonModule],
-  templateUrl: './new-products.component.html',
-  styleUrl: './new-products.component.scss'
+    selector: 'app-new-products',
+    imports: [CommonModule, MatButtonModule,RouterLink],
+    standalone : true,
+    templateUrl: './new-products.component.html',
+    styleUrl: './new-products.component.scss'
 })
 export class NewProductsComponent {
 
