@@ -8,7 +8,7 @@ declare var $: any;
 @Component({
     selector: 'app-crousel',
     standalone : true,
-    imports: [RouterLink,SlickCarouselModule],
+    imports: [SlickCarouselModule],
     templateUrl: './crousel.component.html',
     styleUrl: './crousel.component.scss'
 })

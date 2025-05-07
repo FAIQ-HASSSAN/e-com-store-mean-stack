@@ -14,7 +14,16 @@
     <!-- Profile Icon Section -->
     <div class="flex-1 text-right">
         <!-- <img src="profile-icon.png" alt="Profile" style="height: 40px; cursor: pointer;"> -->
-         <span>Profile</span>
+         @if(authSer.isAdmin){
+            <button mat-raised-button class="mr-4" routerLink="/admin">Dashboard</button>
+         }
+         @if(authSer.isLoggedIn){
+            <span routerLink="/profile" class="cursor-pointer">{{authSer.userName}}</span>
+            <button mat-flat-button class="ml-4" (click)="logoutUser()">Logout</button>
+         }@else{
+            <button mat-flat-button routerLink="/login" >Login</button>
+            <button mat-flat-button routerLink="/register">Register</button>
+         }
     </div>
 </header>
 

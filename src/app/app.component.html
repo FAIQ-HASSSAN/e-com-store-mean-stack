@@ -1,7 +1,7 @@
 <div class="flex flex-col">
-    <app-header></app-header>
+    <app-header *ngIf="!ischeck"></app-header>
      <div class="min-h-screen">
         <router-outlet></router-outlet>
      </div>
-    <app-footer></app-footer>
+    <app-footer *ngIf="!ischeck"></app-footer>
 </div>
