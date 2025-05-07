@@ -16,7 +16,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @Component({
     selector: 'app-product-form',
-    imports: [MatCheckboxModule, JsonPipe, MatSelectModule, ReactiveFormsModule, MatButton, MatFormField, MatLabel, MatInput],
+    imports: [MatCheckboxModule, MatSelectModule, ReactiveFormsModule, MatButton, MatFormField, MatLabel, MatInput],
     templateUrl: './product-form.component.html',
     standalone : true,
     styleUrl: './product-form.component.scss'

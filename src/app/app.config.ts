@@ -3,8 +3,15 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { authenticationInterceptor } from '../core/Interceptors/token-http-interceptor';
+import { adminGuard } from '../core/guards/admin/admin.guard';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideHttpClient(),provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideAnimationsAsync()]
+  providers: 
+  [provideHttpClient(withInterceptors([authenticationInterceptor])),
+   provideZoneChangeDetection({ eventCoalescing: true }), 
+   provideRouter(routes), 
+   provideAnimationsAsync(),
+  ]
 };

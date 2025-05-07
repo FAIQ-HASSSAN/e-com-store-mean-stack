@@ -1,0 +1,57 @@
+
+<!-- Login form -->
+<form id="Login" [formGroup]="registerForm">
+<!-- Left section of the form -->
+    <div class="left">
+        <div>
+        <!-- Welcome message and registration link -->
+        <p>{{isReigster ? 'Hello, Welcome!' : ' Welcome Back!'}}</p>
+        <a href="">{{isReigster ? 'Have An Account' : 'Dont have an account?'}} </a>
+        <button type="submit" mat-raised-button (click)="redirection()">{{isReigster ? 'Login' : 'Register'}}</button>
+        </div>
+    </div>
+
+    <!-- Right section of the form -->
+    <div class="right">
+        <div>
+        <!-- Login heading -->
+        <h1>{{isReigster ? 'Register' : 'Login'}}</h1>
+
+        <!-- Username input field -->
+        @if(isReigster){
+            <input type="text" formControlName="name" name="Username" id="" placeholder="Username" />
+            <span class="material-symbols-outlined person" [ngClass]="isReigster ? 'space-one' : ''"> 
+                <i class="fa-solid fa-user"></i>
+            </span>
+        }
+
+        <!-- // email  -->
+        <input type="email" formControlName="email" name="email" id="" placeholder="email" />
+            <span class="material-symbols-outlined person" [ngClass]="isReigster ? 'space-two' : ''"> 
+                <i class="fa-solid fa-envelope"></i>
+            </span>
+
+        <!-- Password input field -->
+        <input type="password" formControlName="password" name="Password" id="" placeholder="Password"/>
+        <span class="material-symbols-outlined lock" [ngClass]="isReigster ? 'space-three' : ''"> 
+            <i class="fa-solid fa-lock"></i>
+        </span>
+
+        <!-- Forgot password link -->
+        <a href="">Forgot Password?</a>
+
+        <!-- Login button -->
+        <button type="submit" [disabled]="registerForm.invalid" (click)="registerAndloginUser()">{{isReigster ? 'Register' : 'Login'}}</button>
+
+        <!-- Social login options -->
+        <p>{{isReigster ? 'or register with social platforms' : 'or login with social platforms'}}</p>
+        <div>
+            <!-- Social media icons for login -->
+            <a href=""><i class="fa-brands fa-google fa-align-center"></i> </a>
+            <a href=""><i class="fa-brands fa-facebook-f fa-align-center"></i></a>
+            <a href=""><i class="fa-brands fa-github fa-align-center"></i></a>
+            <a href=""><i class="fa-brands fa-linkedin-in fa-align-center"></i></a>
+        </div>
+        </div>
+    </div>
+</form>
